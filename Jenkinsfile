@@ -2,6 +2,10 @@ pipeline {
     triggers {
         pollSCM('') // Enabling being build on Push
     }
+    parameters {
+        booleanParam('FLAG', true)
+        choiceParam('OPTION', ['option 1 (default)', 'option 2', 'option 3'])
+    }
 
     agent any
     stages {
