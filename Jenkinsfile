@@ -7,7 +7,6 @@ pipeline {
         booleanParam(name: 'WINDOWS', defaultValue: true, description: '')
     }
 
-    agent any
     stages {
         stage('Parallel Stage') {
             parallel {
