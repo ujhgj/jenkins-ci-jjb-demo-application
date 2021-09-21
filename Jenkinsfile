@@ -12,7 +12,7 @@ pipeline {
         stage('Parallel Stage') {
             parallel {
                 stage('Linux') {
-                    when { equals expected: true, actual: param.LINUX }
+                    when { equals expected: true, actual: params.LINUX }
                     agent { node "linux-slave" }
                     steps {
                         sh "./node-info.sh | tee linux-node-info.txt"
@@ -20,7 +20,7 @@ pipeline {
                     }
                 }
                 stage('Windows') {
-                    when { equals expected: true, actual: param.WINDOWS }
+                    when { equals expected: true, actual: params.WINDOWS }
                     agent { node "windows-slave" }
                     steps {
                         bat "powershell.exe .\\node-info.ps1 > windows-node-info.txt"
